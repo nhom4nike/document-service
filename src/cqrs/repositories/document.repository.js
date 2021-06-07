@@ -8,7 +8,16 @@ class DocumentRepository {
   }
 
   async createDocument({ url, fileName, userId }) {
-    return await this.model.create({ url, fileName, userId })
+    const eventData = {
+      eventType: 'DOCUMENT-CREATED',
+      payload: {
+        url,
+        fileName,
+        userId
+      },
+      updatedBy: userId
+    }
+    return await this.model.create(eventData)
   }
 }
 

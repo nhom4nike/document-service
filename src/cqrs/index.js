@@ -9,10 +9,10 @@ class CQRS {
    * @param {Object} models mongoose's models
    * @param {Model} models.document
    */
-  constructor({ document }) {
+  constructor({ document, event }) {
     this.document = {
       projection: new DocumentProjection(new DocumentFactory(document)),
-      aggregate: new DocumentAggregate(new DocumentRepository(document))
+      aggregate: new DocumentAggregate(new DocumentRepository(event)),
     }
   }
 }

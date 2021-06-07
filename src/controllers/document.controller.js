@@ -28,7 +28,6 @@ module.exports = function handler({ document }) {
       const { urlSaveObject, urlGetObject } = await AwsService.createLinkUpload(
         req.body
       )
-      console.log(urlSaveObject)
       req.body.url = urlGetObject
       this.create(req)
       return { urlSaveObject, urlGetObject }
