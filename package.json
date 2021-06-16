@@ -8,7 +8,7 @@
     "start": "cross-env NODE_ENV=production node .",
     "dev": "cross-env EUREKA_DISABLE=1 NODE_ENV=development nodemon",
     "test": "",
-    "test:remote": ""
+    "test:remote": "jest __test__"
   },
   "keywords": [],
   "author": "",
