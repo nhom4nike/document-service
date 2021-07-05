@@ -3,9 +3,9 @@ const mongoose = require('mongoose')
 async function connect() {
   return mongoose
     .connect(process.env.MONGO_STRING, {
-      dbName: process.env.MONGO_DBNAME,
-      user: process.env.MONGO_USER,
-      pass: process.env.MONGO_PASSWORD,
+      // dbName: process.env.MONGO_DBNAME,
+      // user: process.env.MONGO_USER,
+      // pass: process.env.MONGO_PASSWORD,
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,
