@@ -17,6 +17,7 @@ class DocumentRepository {
       },
       updatedBy: userId
     }
+    console.log(eventData)
     return await this.model.create(eventData)
   }
 }

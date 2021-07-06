@@ -24,7 +24,7 @@ class DocumentAggregate {
    * @param {document} document
    */
   async _createDocument(document) {
-    return this.repository.createDocument(document)
+    return await this.repository.createDocument(document)
   }
 
   /**

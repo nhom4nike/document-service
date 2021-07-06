@@ -10,7 +10,7 @@ module.exports = function handler({ document }) {
   return {
     create: async function (req) {
       const { aggregate } = document
-      return aggregate.command('createDocument', req.body)
+      return aggregate.command('createDocument', req.query)
     },
     get: async function (req) {
       const { projection } = document
@@ -26,9 +26,9 @@ module.exports = function handler({ document }) {
 
     createLinkUpload: async function (req) {
       const { urlSaveObject, urlGetObject } = await AwsService.createLinkUpload(
-        req.body
+        req.query
       )
-      req.body.url = urlGetObject
+      req.query.url = urlGetObject
       this.create(req)
       return { urlSaveObject, urlGetObject }
     }
