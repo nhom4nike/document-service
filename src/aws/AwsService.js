@@ -1,11 +1,13 @@
 const aws = require('aws-sdk')
-
+const {encode, decode} = require('./hash')
 class AwsService {
   constructor() {
+    this.accessKeyId = decode(process.env.AWSAccessKeyId)
+    this.secretAccessKey = decode( process.env.AWSSecretKey)
     aws.config.update({
       region: process.env.AWS_REGION,
-      accessKeyId: process.env.AWSAccessKeyId,
-      secretAccessKey: process.env.AWSSecretKey
+      accessKeyId: this.accessKeyId,
+      secretAccessKey:this.secretAccessKey
     })
 
     this.S3_BUCKET = process.env.AWSBucket
